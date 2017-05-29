@@ -30,7 +30,16 @@ namespace Model
 
         public void OwnCar(Car c)
         {
-            Car = c;
+            
+
+            if (CategoriesDr.Contains(c.Category))
+            {
+                Car = c;
+            }
+            else
+            {
+                throw new Exception("У водителя нет категории для этой машины");
+            }
         }
 
         public Car Car { get; protected set; }

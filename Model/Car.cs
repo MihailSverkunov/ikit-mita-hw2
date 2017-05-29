@@ -45,17 +45,12 @@ namespace Model
 
         public void ChangeOwner(string newNumber, Driver newDriver)
         {
-            if (newDriver.CategoriesDr.Contains(this.Category))
-            {
-                CarPassport.Owner = newDriver;
-                CarNumber = newNumber;
 
-                newDriver.OwnCar(this);
-            }
-            else
-            {
-                throw new Exception("У водителя нет категории для этой машины");
-            }
+            CarPassport.Owner = newDriver;
+            CarNumber = newNumber;
+
+            newDriver.OwnCar(this);
+
         }
     }
 }
