@@ -12,10 +12,20 @@ namespace LadaSedan
     {
         static void Main(string[] args)
         {
-            
+
             //Создаём машину
-            Car car1 = new Car("Лада", Categories.D);
-            car1.CarColor = Color.Purple;
+            Car car1;
+            try
+            {
+                car1 = new Car("Лада", Categories.D);
+                car1.CarColor = Color.Purple;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadLine();
+                return;
+            }
 
             //Первый раз пытаемся вывести водителя у машины
             try

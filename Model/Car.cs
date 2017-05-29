@@ -3,15 +3,19 @@ using System.Drawing;
 
 namespace Model
 {
-    public enum Categories { A, B, C, D, E, F }
-
-
     public class Car
     {
         public Car(string m, Categories c)
         {
             Model = m;
-            Category = c;
+            if (c != Categories.A)
+            {
+                Category = c;
+            }
+            else
+            {
+                throw new Exception("Нельзя присвоить машине категорию А, категория А - для мотоциклов!");
+            }
             CarPassport = new CarPassport(this);
         }
 
