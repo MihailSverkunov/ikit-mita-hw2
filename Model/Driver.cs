@@ -22,7 +22,15 @@ namespace Model
         {
             get
             {
-                return DateTime.Now.Year - LicenceDate.Year;
+                if (DateTime.Now.Month < LicenceDate.Month ||
+                    DateTime.Now.Month == LicenceDate.Month && DateTime.Now.Day < LicenceDate.Day)
+                {
+                    return DateTime.Now.Year - LicenceDate.Year - 1;
+                }
+                else
+                {
+                    return DateTime.Now.Year - LicenceDate.Year;
+                }
             }
         }
 
