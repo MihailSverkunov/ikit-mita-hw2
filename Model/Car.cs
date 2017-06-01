@@ -49,12 +49,9 @@ namespace Model
 
         public void ChangeOwner(string newNumber, Driver newDriver)
         {
-
+            newDriver.OwnCar(this);
             CarPassport.Owner = newDriver;
             CarNumber = newNumber;
-
-            newDriver.OwnCar(this);
-
         }
     }
 }
